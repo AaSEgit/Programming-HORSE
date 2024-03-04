@@ -13,7 +13,7 @@
 public class ProgrammingHorse {
 
     public static void main (String[] args) {
-        int NUM_PLAYERS = 2;
+        final int NUM_PLAYERS = 2;
         Player[] players = new Player[NUM_PLAYERS];
         int menuSelection;
         
@@ -40,7 +40,6 @@ public class ProgrammingHorse {
             else if (menuSelection == 2) {
                 Game game = new Game(players);
                 game.gameLoop();
-                System.exit(0);
             }
             else if (menuSelection == 3) {
                 System.out.println("Closing game...");
