@@ -44,7 +44,7 @@ public class ProgrammingHorse {
             }
             else if (menuSelection == 3) {
                 System.out.println("Closing game...");
-                System.out.println("Goodbye.");
+                System.out.println("Goodbye.\n");
                 System.exit(0);
             }
         }

@@ -16,6 +16,8 @@ public class InitialScreen {
     // Attributes
     private Scanner scanner;    // Scanner object to receive user input
     private boolean badData;    // Used to validate user input
+    private int minNameLength;  // minimum player name length
+    private int maxNameLength;  // maximum player name length
 
     // Methods
     /*
@@ -25,6 +27,8 @@ public class InitialScreen {
     public InitialScreen() {
         System.out.println("\nWelcome to Programming HORSE!");
         System.out.println("-------------------------------");
+        minNameLength = 3;
+        maxNameLength = 20;
     }
 
     // Get the name of player 1 and validate user input
@@ -39,7 +43,6 @@ public class InitialScreen {
 
             if (nameIsCorrectLength(p1Name) == false) {
                 badData = true;
-                System.out.println("Invalid entry. Player names must be between 1 and 20 characters long.");
             }
             else {
                 badData = false;
@@ -60,7 +63,6 @@ public class InitialScreen {
 
             if (nameIsCorrectLength(p2Name) == false) {
                 badData = true;
-                System.out.println("Invalid entry. Player names must be between 1 and 20 characters long.");
             }
             else if (p1Name.compareTo(p2Name) == 0) {
                 badData = true;
@@ -75,9 +77,12 @@ public class InitialScreen {
 
     // Checks if the Player's name is the correct length
     boolean nameIsCorrectLength(String pName) {
-        if (pName.length() >= 3 && pName.length() <= 20) {
-            return true;
+        if (pName.length() < minNameLength || pName.length() > maxNameLength) {
+            System.out.println("Invalid entry. Player names must be between " 
+                                + minNameLength + " and " +  maxNameLength + " characters long.");
+            return false;
         }
-        return false;
+        
+        return true;
     }
 }
