@@ -16,15 +16,34 @@ public class Game {
     Question[] questionBank;
     Player[] players;
 
-    // TODO: add Game constructor
+    // TODO: complete Game constructor
     public Game(Player[] players) {
-        
+        this.players = players;
     }
 
-    // TODO: add gameplay functionality
+    // TODO: Play multiple rounds until a Player wins the game
     public void gameLoop() {
         System.out.println("\nProgramming HORSE");
         System.out.println("-------------------------------");
         System.out.println("TODO: Play Game...");
+    }
+
+    // TODO: Play multiple rounds until a Player wins the game
+    public boolean playRound() {
+        return false;
+    }
+
+    // TODO: Prompt Player for answer choice and validate input
+    public int getAnswerSelection() {
+        return 0;
+    }
+
+    /*
+     * TODO: Check if a Player has won the game at the end of a round
+     * Return the index of the Player who won
+     * Otherwise, return -1
+     */
+    public int checkWinCondition() {
+        return -1;  // no Players have won the game yet
     }
 }

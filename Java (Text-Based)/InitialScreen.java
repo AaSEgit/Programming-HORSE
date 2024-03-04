@@ -23,7 +23,7 @@ public class InitialScreen {
      * Displays welcome message
      */
     public InitialScreen() {
-        System.out.println("Welcome to Programming HORSE!");
+        System.out.println("\nWelcome to Programming HORSE!");
         System.out.println("-------------------------------");
     }
 
