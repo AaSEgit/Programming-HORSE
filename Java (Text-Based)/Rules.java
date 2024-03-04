@@ -8,6 +8,17 @@
  * 
  */
 
+import java.util.Scanner;
+
 public class Rules {
-    
+    // TODO: add rules page
+    void displayRules() {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("\nRules");
+        System.out.println("-------------------------------");
+        System.out.println("TODO: Rules page...");
+        System.out.print("\nPress ENTER to return to main menu: ");
+        s.nextLine();
+    }
 }

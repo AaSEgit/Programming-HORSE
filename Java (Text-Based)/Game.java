@@ -8,6 +8,23 @@
  * 
  */
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Game {
-    
+    Random rng;
+    Question[] questionBank;
+    Player[] players;
+
+    // TODO: add Game constructor
+    public Game(Player[] players) {
+        
+    }
+
+    // TODO: add gameplay functionality
+    public void gameLoop() {
+        System.out.println("\nProgramming HORSE");
+        System.out.println("-------------------------------");
+        System.out.println("TODO: Play Game...");
+    }
 }
