@@ -22,7 +22,7 @@ public class ProgrammingHorse {
 
         // Get player names and initialize Player objects
         players[0] = new Player(initialScreen.getPlayer1Name());
-        players[1] = new Player(initialScreen.getPlayer2Name(players[0].getPlayerName()));
+        players[1] = new Player(initialScreen.getPlayer2Name(players[0].getName()));
         
         // Create Menu object and get menu selection
         Menu menu = new Menu();
