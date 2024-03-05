@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class Question {
     // Attributes
-    Scanner fileScanner;
     String topic;
     String textPrompt;
     String[] answerChoices;
@@ -32,7 +31,7 @@ public class Question {
     public void loadQuestionFile(int ID) {
         try {
             // Create scanner to read file contents
-            fileScanner = new Scanner(new File("question_" + ID + ".txt"));
+            Scanner fileScanner = new Scanner(new File("question_" + ID + ".txt"));
 
             while (fileScanner.hasNextLine()) {
                 topic = fileScanner.nextLine();
