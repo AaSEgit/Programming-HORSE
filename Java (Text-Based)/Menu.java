@@ -12,9 +12,6 @@
 import java.util.Scanner;
 
 public class Menu {
-    // Attributes
-    private Scanner scanner;
-
     // Methods
     // Displays main menu options
     public void displayMenu() {
@@ -27,7 +24,7 @@ public class Menu {
 
     // Prompt the user for menu selection
     public int getMenuSelection() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int userChoice = 0;     // Default value, is returned if an exception is caught
 
         try {
