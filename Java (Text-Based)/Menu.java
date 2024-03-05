@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Menu {
     // Attributes
     private Scanner scanner;
-    private boolean badData;
 
     // Methods
     /*
@@ -30,25 +29,22 @@ public class Menu {
 
     public int getMenuSelection() {
         scanner = new Scanner(System.in);
-        badData = true;
         int userChoice = 0;     // Default value, is returned if an exception is caught
 
         try {
-            while(badData) {
+            while(userChoice == 0) {
                 displayMenu();
                     System.out.print("Make a selection: ");
                     userChoice = scanner.nextInt();
     
                     if (userChoice < 1 || userChoice > 3) {
-                        badData = true;
+                        userChoice = 0;
                         System.out.println("Invalid menu option.");
-                    }
-                    else {
-                        badData = false;
                     }
             }
         } catch (Exception e) {
-            System.out.println("Error: not a valid integer");
+            userChoice = 0;
+            System.out.println("Invalid menu option.");
         }
 
         return userChoice;
