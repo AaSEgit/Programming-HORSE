@@ -16,9 +16,7 @@ public class Menu {
     private Scanner scanner;
 
     // Methods
-    /*
-     * Displays main menu options
-     */
+    // Displays main menu options
     public void displayMenu() {
         System.out.println("\nMenu");
         System.out.println("-------------------------------");
@@ -27,6 +25,7 @@ public class Menu {
         System.out.println("(3) Quit");
     }
 
+    // Prompt the user for menu selection
     public int getMenuSelection() {
         scanner = new Scanner(System.in);
         int userChoice = 0;     // Default value, is returned if an exception is caught

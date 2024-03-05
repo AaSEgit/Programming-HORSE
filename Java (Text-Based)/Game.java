@@ -12,22 +12,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    Random rng;
-    Player[] players;
-    Player currentPlayer;
-    int[] playerAnswerSelections;
-    Question currentQuestion;
+    // Attributes
+    Random rng;         // Random number generator
     int numRounds;
+    Player[] players;
+    int[] playerAnswerSelections;
+    Player currentPlayer;
+    Question currentQuestion;
 
-
-    // TODO: complete Game constructor
+    // Methods
+    /*
+     * Constructor
+     */
     public Game(Player[] players) {
+        rng = new Random();
+        numRounds = 0;
         this.players = players;
         playerAnswerSelections = new int[players.length];
-
-        rng = new Random();
-
-        numRounds = 0;
     }
 
     // TODO: Play multiple rounds until a Player wins the game
@@ -60,14 +61,14 @@ public class Game {
         return false;
     }
 
-    // Load in a question
+    // Load in a randomized Question
     void getQuestion() {
         currentQuestion = new Question();
         currentQuestion.loadQuestionFile(rng.nextInt(2));   // TODO: make more questions to expand rng range
         currentQuestion.displayQuestion();
     }
 
-    // Prompt Player for answer choice and validate input
+    // Prompt Player for answer choice
     public int getAnswerSelection(int i) {
         Scanner s = new Scanner(System.in);
         int answer = 0; // Default value, is returned if an exception is caught
@@ -87,7 +88,7 @@ public class Game {
             answer = 0;
             System.out.println("Invalid answer. Try again.");
         }
-        
+
         return answer;
     }
 

@@ -11,7 +11,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Question {
     // Attributes
@@ -22,10 +21,14 @@ public class Question {
     int correctAnswer;
 
     // Methods
+    /*
+     * Constructor
+     */
     public Question () {
         answerChoices = new String[4];
     }   
 
+    // Loads a file from the question bank based on a Question ID
     public void loadQuestionFile(int ID) {
         try {
             // Create scanner to read file contents
@@ -47,6 +50,7 @@ public class Question {
         }
     }
 
+    // Display Question
     public void displayQuestion() {
         System.out.print(textPrompt + "\n");
 
@@ -55,6 +59,7 @@ public class Question {
         }
     }
 
+    // Returns the correct answer for a question
     public int getCorrectAnswer() {
         return correctAnswer;
     }
