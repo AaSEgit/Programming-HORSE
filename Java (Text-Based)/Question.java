@@ -37,7 +37,7 @@ public class Question {
                 topic = fileScanner.nextLine();
                 textPrompt = fileScanner.nextLine();
 
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < answerChoices.length; i++) {
                     answerChoices[i] = fileScanner.nextLine();
                 }
 
