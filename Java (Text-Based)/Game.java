@@ -56,7 +56,8 @@ public class Game {
             playerAnswerSelections[i] = answer;
         }
 
-        //TODO: compare player answers and update points
+        determineRound();
+        checkWinCondition();
 
         return false;
     }
@@ -92,8 +93,16 @@ public class Game {
         return answer;
     }
 
+    /* 
+    * TODO: compare player answers and update points
+    */
+    public void determineRound() {
+        // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
+        // Use Player[] players to update the corresponding Player's points
+    }
+
     /*
-     * TODO: Check if a Player has won the game at the end of a round
+     * TODO: Check if a Player has won the game at the end of a round (has 5 points)
      * Return the index of the Player who won
      * Otherwise, return -1
      */
