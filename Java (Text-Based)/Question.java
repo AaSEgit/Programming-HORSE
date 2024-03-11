@@ -31,7 +31,7 @@ public class Question {
     public void loadQuestionFile(int ID) {
         try {
             // Create scanner to read file contents
-            Scanner fileScanner = new Scanner(new File("question_" + ID + ".txt"));
+            Scanner fileScanner = new Scanner(new File("Java (Text-Based)/question_" + ID + ".txt"));
 
             while (fileScanner.hasNextLine()) {
                 topic = fileScanner.nextLine();
