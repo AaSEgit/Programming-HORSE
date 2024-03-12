@@ -14,10 +14,10 @@ import java.util.Scanner;
 
 public class Question {
     // Attributes
-    public String topic;
-    public String textPrompt;
-    public String[] answerChoices;
-    public int correctAnswer;
+    private String topic;
+    private String textPrompt;
+    private String[] answerChoices;
+    private int correctAnswer;
 
     // Methods
     /*
