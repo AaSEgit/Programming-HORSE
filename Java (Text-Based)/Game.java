@@ -31,18 +31,33 @@ public class Game {
         playerAnswerSelections = new int[players.length];
     }
 
-    // TODO: Play multiple rounds until a Player wins the game
-    public void gameLoop() {
+    // Play multiple rounds until a Player wins the game
+    public void playGame() {
+        int winner = -1;
+
+        for (Player p : players) {
+            p.resetPoints();
+        }
+
         System.out.println("\nProgramming HORSE");
         System.out.println("-------------------------------");
 
-        System.out.print("\nRound " + (numRounds+1) + ": ");
-        playRound();
+        while (winner == -1) {
+            playRound();
+
+            for (Player p : players) {
+                System.out.println(p.getName() + ": " + p.getPoints());
+            }
+
+            winner = checkWinCondition();
+        }
     }
 
-    // TODO: Play multiple rounds until a Player wins the game
-    public boolean playRound() {
+    // Play a single round
+    public void playRound() {
         int answer;
+
+        System.out.print("\nRound " + (numRounds+1) + ": ");
 
         getQuestion();          // Load in a question
         System.out.println();   // print empty line
@@ -56,10 +71,10 @@ public class Game {
             playerAnswerSelections[i] = answer;
         }
 
+        // Determine the winner of the round
         determineRound();
-        checkWinCondition();
 
-        return false;
+        numRounds++;
     }
 
     // Load in a randomized Question
@@ -94,19 +109,33 @@ public class Game {
     }
 
     /* 
-    * TODO: compare player answers and update points
+    * Compare player answers and update points
     */
     public void determineRound() {
         // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
         // Use Player[] players to update the corresponding Player's points
+        if (playerAnswerSelections[0] != playerAnswerSelections[1]) {
+            if (playerAnswerSelections[0] == currentQuestion.getCorrectAnswer() + 1) {
+                players[0].updatePlayerPoints(1);
+            }
+            else {
+                players[1].updatePlayerPoints(1);
+            }
+        }
     }
 
     /*
-     * TODO: Check if a Player has won the game at the end of a round (has 5 points)
+     * Check if a Player has won the game at the end of a round (has 5 points)
      * Return the index of the Player who won
      * Otherwise, return -1
      */
     public int checkWinCondition() {
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getPoints() == 5) {
+                System.out.println(players[i].getName() + " spelled HORSE! You win!");
+                return i;
+            }
+        }
         return -1;  // no Players have won the game yet
     }
 }

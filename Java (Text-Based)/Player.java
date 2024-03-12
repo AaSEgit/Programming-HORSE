@@ -32,7 +32,12 @@ public class Player {
     }
 
     // Increments Player points
-    void updatePlayerPoints() {
-        ++points;
+    void updatePlayerPoints(int p) {
+        points += p;
+    }
+
+    // 
+    public void resetPoints() {
+        points = 0;
     }
 }
