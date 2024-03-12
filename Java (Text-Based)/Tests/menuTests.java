@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MenuTest {
+class menuTests {
 
     @Test
     void testGetMenuSelection() {
