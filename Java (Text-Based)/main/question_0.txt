@@ -1,0 +1,7 @@
+Data Types
+Which data type is used for storing whole number values?
+float/double
+integer
+boolean
+character
+1
