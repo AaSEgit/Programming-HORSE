@@ -13,12 +13,12 @@ import java.util.Scanner;
 
 public class Game {
     // Attributes
-    Random rng;         // Random number generator
-    int numRounds;
-    Player[] players;
-    int[] playerAnswerSelections;
-    Player currentPlayer;
-    Question currentQuestion;
+    private Random rng;         // Random number generator
+    private int numRounds;
+    private Player[] players;
+    private int[] playerAnswerSelections;
+    private Player currentPlayer;
+    private Question currentQuestion;
 
     // Methods
     /*
@@ -43,13 +43,8 @@ public class Game {
         System.out.println("-------------------------------");
 
         while (winner == -1) {
-            playRound();
-
-            for (Player p : players) {
-                System.out.println(p.getName() + ": " + p.getPoints());
-            }
-
-            winner = checkWinCondition();
+            playRound();                    // play a single round
+            winner = checkWinCondition();   // check if any Players won yet
         }
     }
 
@@ -74,6 +69,14 @@ public class Game {
         // Determine the winner of the round
         determineRound();
 
+        // Display Player progress
+        for (Player p : players) {
+            System.out.print(p.getName() + ": ");
+            p.displayHORSE();
+            System.out.println();
+        }
+
+        // Update round counter
         numRounds++;
     }
 
@@ -132,7 +135,7 @@ public class Game {
     public int checkWinCondition() {
         for (int i = 0; i < players.length; i++) {
             if (players[i].getPoints() == 5) {
-                System.out.println(players[i].getName() + " spelled HORSE! You win!");
+                System.out.println("\n" + players[i].getName() + " spelled HORSE! You win!");
                 return i;
             }
         }

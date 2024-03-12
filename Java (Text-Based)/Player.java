@@ -10,15 +10,17 @@
  */
 
 public class Player {
-    String name;
-    int points;
+    private String name;
+    private int points;
+    private char[] currentLetters;
+    private static char[] HORSE = {'H', 'O', 'R', 'S', 'E'};
 
     /*
      * Constructor
      */
     public Player(String playerName) {
         name = playerName;
-        points = 0;
+        resetPoints();
     }
 
     // Returns the Player's name
@@ -31,6 +33,18 @@ public class Player {
         return points;
     }
 
+    public void displayHORSE() {
+        if (points > 0) {
+            for (int i = 0; i < points; i++) {
+                currentLetters[i] = HORSE[i];
+            }
+        }
+
+        for (char l : currentLetters) {
+            System.out.print(l);
+        }
+    }
+
     // Increments Player points
     void updatePlayerPoints(int p) {
         points += p;
@@ -39,5 +53,6 @@ public class Player {
     // 
     public void resetPoints() {
         points = 0;
+        currentLetters = new char[] {'_', '_', '_', '_', '_'};
     }
 }
