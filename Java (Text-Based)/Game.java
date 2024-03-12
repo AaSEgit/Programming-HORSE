@@ -13,12 +13,12 @@ import java.util.Scanner;
 
 public class Game {
     // Attributes
-    Random rng;         // Random number generator
-    int numRounds;
-    Player[] players;
-    int[] playerAnswerSelections;
-    Player currentPlayer;
-    Question currentQuestion;
+    private Random rng;         // Random number generator
+    private int numRounds;
+    private Player[] players;
+    private int[] playerAnswerSelections;
+    private Player currentPlayer;
+    private Question currentQuestion;
 
     // Methods
     /*
@@ -31,18 +31,28 @@ public class Game {
         playerAnswerSelections = new int[players.length];
     }
 
-    // TODO: Play multiple rounds until a Player wins the game
-    public void gameLoop() {
+    // Play multiple rounds until a Player wins the game
+    public void playGame() {
+        int winner = -1;
+
+        for (Player p : players) {
+            p.resetPoints();
+        }
+
         System.out.println("\nProgramming HORSE");
         System.out.println("-------------------------------");
 
-        System.out.print("\nRound " + (numRounds+1) + ": ");
-        playRound();
+        while (winner == -1) {
+            playRound();                    // play a single round
+            winner = checkWinCondition();   // check if any Players won yet
+        }
     }
 
-    // TODO: Play multiple rounds until a Player wins the game
-    public boolean playRound() {
+    // Play a single round
+    public void playRound() {
         int answer;
+
+        System.out.print("\nRound " + (numRounds+1) + ": ");
 
         getQuestion();          // Load in a question
         System.out.println();   // print empty line
@@ -56,9 +66,16 @@ public class Game {
             playerAnswerSelections[i] = answer;
         }
 
-        //TODO: compare player answers and update points
+        // Determine the winner of the round
+        determineRound();
 
-        return false;
+        // Display Player progress
+        for (Player p : players) {
+            p.displayHORSE();
+        }
+
+        // Update round counter
+        numRounds++;
     }
 
     // Load in a randomized Question
@@ -91,13 +108,33 @@ public class Game {
 
         return answer;
     }
+ 
+    // Compare player answers and update points
+    public void determineRound() {
+        // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
+        // Use Player[] players to update the corresponding Player's points
+        if (playerAnswerSelections[0] != playerAnswerSelections[1]) {
+            if (playerAnswerSelections[0] == currentQuestion.getCorrectAnswer() + 1) {
+                players[0].updatePoints();
+            }
+            else {
+                players[1].updatePoints();
+            }
+        }
+    }
 
     /*
-     * TODO: Check if a Player has won the game at the end of a round
+     * Check if a Player has won the game at the end of a round (has 5 points)
      * Return the index of the Player who won
      * Otherwise, return -1
      */
     public int checkWinCondition() {
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getPoints() == 5) {
+                System.out.println("\n" + players[i].getName() + " spelled HORSE! You win!");
+                return i;
+            }
+        }
         return -1;  // no Players have won the game yet
     }
 }

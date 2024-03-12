@@ -39,7 +39,7 @@ public class ProgrammingHorse {
             }
             else if (menuSelection == 2) {
                 Game game = new Game(players);
-                game.gameLoop();
+                game.playGame();
             }
             else if (menuSelection == 3) {
                 System.out.println("\nClosing game...Goodbye.\n");

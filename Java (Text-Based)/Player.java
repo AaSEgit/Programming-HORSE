@@ -10,15 +10,17 @@
  */
 
 public class Player {
-    String name;
-    int points;
+    private String name;
+    private int points;
+    private char[] currentLetters;
+    private static char[] HORSE = {'H', 'O', 'R', 'S', 'E'};
 
     /*
      * Constructor
      */
     public Player(String playerName) {
         name = playerName;
-        points = 0;
+        resetPoints();
     }
 
     // Returns the Player's name
@@ -31,8 +33,32 @@ public class Player {
         return points;
     }
 
+    // Displays the Player’s progress towards spelling HORSE 
+    //based on the points counter
+    public void displayHORSE() {
+        // Display player name
+        System.out.print(name + ": ");
+
+        // Update currentLetters based on points counter
+        if (points > 0) {
+            currentLetters[points - 1] = HORSE[points - 1];
+        }
+
+        // Display currentLetters
+        for (char l : currentLetters) {
+            System.out.print(l);
+        }
+        System.out.println();
+    }
+
     // Increments Player points
-    void updatePlayerPoints() {
-        ++points;
+    void updatePoints() {
+        points ++;
+    }
+
+    // Reset points counter and currentLetters
+    public void resetPoints() {
+        points = 0;
+        currentLetters = new char[] {'_', '_', '_', '_', '_'};
     }
 }
