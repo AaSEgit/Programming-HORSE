@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RulesTest {
+class rulesTests {
 
     @Test
     void testDisplayRules() {
