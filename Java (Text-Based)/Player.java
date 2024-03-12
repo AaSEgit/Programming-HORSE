@@ -33,16 +33,22 @@ public class Player {
         return points;
     }
 
+    // Displays the Player’s progress towards spelling HORSE 
+    //based on the points counter
     public void displayHORSE() {
+        // Display player name
+        System.out.print(name + ": ");
+
+        // Update currentLetters based on points counter
         if (points > 0) {
-            for (int i = 0; i < points; i++) {
-                currentLetters[i] = HORSE[i];
-            }
+            currentLetters[points - 1] = HORSE[points - 1];
         }
 
+        // Display currentLetters
         for (char l : currentLetters) {
             System.out.print(l);
         }
+        System.out.println();
     }
 
     // Increments Player points
@@ -50,7 +56,7 @@ public class Player {
         points += p;
     }
 
-    // 
+    // Reset points counter and currentLetters
     public void resetPoints() {
         points = 0;
         currentLetters = new char[] {'_', '_', '_', '_', '_'};

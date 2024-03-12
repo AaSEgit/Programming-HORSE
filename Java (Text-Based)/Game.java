@@ -71,9 +71,7 @@ public class Game {
 
         // Display Player progress
         for (Player p : players) {
-            System.out.print(p.getName() + ": ");
             p.displayHORSE();
-            System.out.println();
         }
 
         // Update round counter
@@ -110,10 +108,8 @@ public class Game {
 
         return answer;
     }
-
-    /* 
-    * Compare player answers and update points
-    */
+ 
+    // Compare player answers and update points
     public void determineRound() {
         // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
         // Use Player[] players to update the corresponding Player's points
