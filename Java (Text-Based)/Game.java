@@ -115,10 +115,10 @@ public class Game {
         // Use Player[] players to update the corresponding Player's points
         if (playerAnswerSelections[0] != playerAnswerSelections[1]) {
             if (playerAnswerSelections[0] == currentQuestion.getCorrectAnswer() + 1) {
-                players[0].updatePlayerPoints(1);
+                players[0].updatePlayerPoints();
             }
             else {
-                players[1].updatePlayerPoints(1);
+                players[1].updatePlayerPoints();
             }
         }
     }

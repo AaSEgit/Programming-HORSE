@@ -52,8 +52,8 @@ public class Player {
     }
 
     // Increments Player points
-    void updatePlayerPoints(int p) {
-        points += p;
+    void updatePlayerPoints() {
+        points ++;
     }
 
     // Reset points counter and currentLetters
