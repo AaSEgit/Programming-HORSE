@@ -96,7 +96,7 @@ public class initialScreenTests {
             assertEquals("PlayerTwo", player2Name);
 
             // Assert that the method displayed the correct error message
-            assertTrue(outContent.toString().contains("Invalid entry. Player names must be between"));
+            assertTrue(outContent.toString().contains("Invalid entry. Player names must be between 3 and 20 characters long."));
         } finally {
             // Reset System.in and System.out
             System.setIn(System.in);
