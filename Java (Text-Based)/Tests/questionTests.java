@@ -20,13 +20,13 @@ public class questionTests {
     public void testLoadQuestionFile() {
         question.loadQuestionFile(1);
 
-        assertEquals("Expected topic does not match", "Data Types", question.topic);
-        assertEquals("Expected text prompt does not match", "Which data type is used for storing whole number values?", question.textPrompt);
+        assertEquals("Expected topic does not match", "Data Types", question.getTopic());
+        assertEquals("Expected text prompt does not match", "Which data type is used for storing decimal values?", question.getTextPrompt());
 
         String[] expectedChoices = {"float/double", "integer", "boolean", "character"};
-        assertArrayEquals("Expected answer choices do not match", expectedChoices, question.answerChoices);
+        assertArrayEquals("Expected answer choices do not match", expectedChoices, question.getAnswerChoices());
 
-        assertEquals("Expected correct answer does not match", 1, question.getCorrectAnswer());
+        assertEquals("Expected correct answer does not match", 0, question.getCorrectAnswer());
     }
 
     @Test
@@ -34,10 +34,12 @@ public class questionTests {
         // Assuming there is no question with ID 1000
         question.loadQuestionFile(1000);
 
-        assertNull("Topic should be null for a non-existent file", question.topic);
-        assertNull("Text prompt should be null for a non-existent file", question.textPrompt);
-        assertNull("Answer choices should be null for a non-existent file", question.answerChoices);
-        assertEquals("Correct answer should be -1 for a non-existent file", -1, question.getCorrectAnswer());
+        assertNull("Topic should be null for a non-existent file", question.getTopic());
+        assertNull("Text prompt should be null for a non-existent file", question.getTextPrompt());
+        for (String choice : question.getAnswerChoices()) {
+            assertNull("Each answer choice should be null for a non-existent file", choice);
+        }
+        assertEquals("Correct answer should be 0 for a non-existent file", 0, question.getCorrectAnswer());
     }
 
     @Test
@@ -56,7 +58,7 @@ public class questionTests {
         System.setOut(System.out);
 
         // Check the printed output
-        String expectedOutput = "Which data type is used for storing whole number values?\n(1)  float/double\n(2)  integer\n(3)  boolean\n(4)  character\n";
+        String expectedOutput = "Which data type is used for storing decimal values?\n(1)  float/double\n(2)  integer\n(3)  boolean\n(4)  character\n";
         assertEquals("Display output does not match expected output", expectedOutput, outContent.toString());
     }
 }
