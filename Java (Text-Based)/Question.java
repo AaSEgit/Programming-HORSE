@@ -63,4 +63,19 @@ public class Question {
         return correctAnswer;
     }
 
+    // Returns the topic of a question
+    public String getTopic() { 
+        return topic;
+    }
+
+    // Returns the actual question 
+    public String getTextPrompt() { 
+        return textPrompt;
+    }
+
+    // Returns the answer choices for a quesiton
+    public String[] getAnswerChoices() {
+        return answerChoices;
+    }
+
 }
