@@ -63,4 +63,10 @@ public class Question {
         return correctAnswer;
     }
 
+    public String getTopic() { return topic; }
+    public String getTextPrompt() { return textPrompt; }
+    public String[] getAnswerChoices() {
+        return answerChoices;
+    }
+
 }
