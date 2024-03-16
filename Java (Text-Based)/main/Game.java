@@ -137,4 +137,23 @@ public class Game {
         }
         return -1;  // no Players have won the game yet
     }
+
+    /*
+     * Getter methods 
+     */
+    public int getNumRounds() {
+        return numRounds;
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public int[] getPlayerAnswerSelections() {
+        return playerAnswerSelections;
+    }
+
+    public Question getCurrentQuestion() {
+        return currentQuestion;
+    }
 }
