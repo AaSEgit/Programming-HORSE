@@ -124,5 +124,78 @@ class gameTests {
         player2.updatePlayerPoints(3); // Player 2 has 3 points
         assertEquals(-1, game.checkWinCondition()); // No winner yet
     }
-  
+
+    @Test
+    void testDetermineRound_Player1Wins() {
+        // Create players for testing
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player[] players = {player1, player2};
+
+        // Create a game with the players
+        Game game = new Game(players);
+
+        // Set up player answer selections and current question for testing
+        game.setPlayerAnswerSelections(new int[]{1, 0}); // Player 1 wins this round
+        Question question = new Question();
+        question.loadQuestionFile(1); // Correct answer index is 0
+        game.setCurrentQuestion(question);
+
+        // Call determineRound method
+        game.determineRound();
+
+        // Verify that player 1's points are updated
+        assertEquals(1, player1.getPoints());
+        // Verify that player 2's points remain unchanged
+        assertEquals(0, player2.getPoints());
+    }
+
+    @Test
+    void testDetermineRound_Player2Wins() {
+        // Create players for testing
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player[] players = {player1, player2};
+
+        // Create a game with the players
+        Game game = new Game(players);
+
+        // Set up player answer selections and current question for testing
+        game.setPlayerAnswerSelections(new int[]{3, 1}); // Player 2 wins this round
+        Question question = new Question();
+        question.loadQuestionFile(0); // Correct answer index is 0
+        game.setCurrentQuestion(question);
+
+        // Call determineRound method
+        game.determineRound();
+
+        // Verify that player 2's points are updated
+        assertEquals(1, player2.getPoints());
+        // Verify that player 1's points remain unchanged
+        assertEquals(0, player1.getPoints());
+    }
+
+    @Test
+    void testDetermineRound_Tie_NoPointsUpdated() {
+        // Create players for testing
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player[] players = {player1, player2};
+
+        // Create a game with the players
+        Game game = new Game(players);
+
+        // Set up player answer selections and current question for testing
+        game.setPlayerAnswerSelections(new int[]{2, 2}); // Tie this round
+        Question question = new Question();
+        question.loadQuestionFile(1); // Correct answer index is 1
+        game.setCurrentQuestion(question);
+
+        // Call determineRound method
+        game.determineRound();
+
+        // Verify that no player's points are updated
+        assertEquals(0, player1.getPoints());
+        assertEquals(0, player2.getPoints());
+    }
 }
