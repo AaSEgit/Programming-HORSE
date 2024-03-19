@@ -176,7 +176,7 @@ class gameTests {
     }
 
     @Test
-    void testDetermineRound_Tie_NoPointsUpdated() {
+    void testDetermineRound_Tie() {
         // Create players for testing
         Player player1 = new Player("Player1");
         Player player2 = new Player("Player2");
