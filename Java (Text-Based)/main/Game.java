@@ -156,4 +156,12 @@ public class Game {
     public Question getCurrentQuestion() {
         return currentQuestion;
     }
+
+    public void setPlayerAnswerSelections(int[] playerAnswerSelections) {
+        this.playerAnswerSelections = playerAnswerSelections;
+    }
+
+    public void setCurrentQuestion(Question currentQuestion) {
+        this.currentQuestion = currentQuestion;
+    }
 }
