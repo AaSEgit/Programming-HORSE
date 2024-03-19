@@ -198,4 +198,26 @@ class gameTests {
         assertEquals(0, player1.getPoints());
         assertEquals(0, player2.getPoints());
     }
+
+   @Test
+    void testGetQuestion() {
+        // Redirect System.out to capture the output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // Create a game
+        Game game = new Game(new Player[]{});
+
+        // Call getQuestion method
+        game.getQuestion();
+
+        // Reset System.out
+        System.setOut(System.out);
+
+        // Split the captured output into lines
+        String[] lines = outContent.toString().split("\\r?\\n");
+
+        // Verify that the output contains 5 lines of text corresponding to how question is displayed
+        assertEquals(5, lines.length);
+    }
 }
