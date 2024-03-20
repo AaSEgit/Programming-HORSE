@@ -61,4 +61,9 @@ public class Player {
         points = 0;
         currentLetters = new char[] {'_', '_', '_', '_', '_'};
     }
+
+    // Set points counter
+    public void setPoints(int p) {
+        points = p;
+    }
 }

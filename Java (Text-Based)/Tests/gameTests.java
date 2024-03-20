@@ -106,7 +106,7 @@ class gameTests {
         Game game = new Game(players);
 
         // Test case: Player 1 wins
-        player1.updatePlayerPoints(5);
+        player1.setPoints(5);
         assertEquals(0, game.checkWinCondition()); // Player 1 should win
     }
 
@@ -121,7 +121,7 @@ class gameTests {
         Game game = new Game(players);
 
         // Test case: No winner yet
-        player2.updatePlayerPoints(3); // Player 2 has 3 points
+        player2.setPoints(3); // Player 2 has 3 points
         assertEquals(-1, game.checkWinCondition()); // No winner yet
     }
 
