@@ -8,7 +8,7 @@
  * 
  * Description:   This file contains the source code for the InitialScreen module.
  */
-
+package main;
 import java.util.Scanner;
 
 public class InitialScreen {

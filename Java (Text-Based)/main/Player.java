@@ -8,7 +8,7 @@
  * 
  * Description:   This file contains the source code for the Player module.
  */
-
+package main;
 public class Player {
     private String name;
     private int points;
@@ -52,7 +52,7 @@ public class Player {
     }
 
     // Increments Player points
-    void updatePoints() {
+    public void updatePoints() {
         points ++;
     }
 
@@ -60,5 +60,9 @@ public class Player {
     public void resetPoints() {
         points = 0;
         currentLetters = new char[] {'_', '_', '_', '_', '_'};
+    }
+
+    public void setPlayerPoints(int i) {
+        points = i;
     }
 }
