@@ -79,7 +79,7 @@ public class Game {
     }
 
     // Load in a randomized Question
-    void getQuestion() {
+    public void getQuestion() {
         currentQuestion = new Question();
         currentQuestion.loadQuestionFile(rng.nextInt(2));   // TODO: make more questions to expand rng range
         currentQuestion.displayQuestion();

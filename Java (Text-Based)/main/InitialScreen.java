@@ -74,7 +74,7 @@ public class InitialScreen {
     }
 
     // Checks if the Player's name is the correct length
-    boolean nameIsCorrectLength(String pName) {
+    public boolean nameIsCorrectLength(String pName) {
         if (pName.length() < MIN_NAME_LENGTH || pName.length() > MAX_NAME_LENGTH) {
             System.out.println("Invalid entry. Player names must be between " 
                                 + MIN_NAME_LENGTH + " and " +  MAX_NAME_LENGTH + " characters long.");

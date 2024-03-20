@@ -52,7 +52,7 @@ public class Player {
     }
 
     // Increments Player points
-    void updatePoints() {
+    public void updatePoints() {
         points ++;
     }
 

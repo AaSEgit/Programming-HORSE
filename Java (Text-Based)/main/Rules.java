@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Rules {
 
-    void displayRules() {
+    public void displayRules() {
         Scanner s = new Scanner(System.in);
 
         System.out.println("\nRules Overview");
