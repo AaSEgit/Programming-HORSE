@@ -9,7 +9,7 @@
  * Description:   This file contains the main method for the Programming HORSE game.
  *                  The user will run this file to play the game.
  */
-package main;
+
 public class ProgrammingHorse {
 
     public static void main (String[] args) {

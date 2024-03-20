@@ -7,7 +7,7 @@
  * Due Date: April 24, 2024
  * 
  */
-package main;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -64,9 +64,7 @@ public class Question {
     }
 
     public String getTopic() { return topic; }
-
     public String getTextPrompt() { return textPrompt; }
-    
     public String[] getAnswerChoices() {
         return answerChoices;
     }

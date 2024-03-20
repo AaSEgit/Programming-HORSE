@@ -38,7 +38,7 @@ class playerTests {
         Player player = new Player("TestPlayer");
 
         // Set up player points for testing
-        player.setPlayerPoints(3);
+        player.updatePlayerPoints(3);
 
         // Redirect System.out to capture the output
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -60,7 +60,7 @@ class playerTests {
         Player player = new Player("TestPlayer");
 
         // Call the method to be tested
-        player.setPlayerPoints(2);
+        player.updatePlayerPoints(2);
 
         // Assert that the player points are updated correctly
         assertEquals(2, player.getPoints());
@@ -72,7 +72,7 @@ class playerTests {
         Player player = new Player("TestPlayer");
 
         // Set up player points for testing
-        player.setPlayerPoints(3);
+        player.updatePlayerPoints(3);
 
         // Call the method to be tested
         player.resetPoints();

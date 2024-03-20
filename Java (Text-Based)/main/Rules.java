@@ -7,12 +7,12 @@
  * Due Date: April 24, 2024
  * 
  */
-package main;
+
 import java.util.Scanner;
 
 public class Rules {
 
-    public void displayRules() {
+    void displayRules() {
         Scanner s = new Scanner(System.in);
 
         System.out.println("\nRules Overview");
