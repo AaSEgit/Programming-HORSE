@@ -220,4 +220,42 @@ class gameTests {
         // Verify that the output contains 5 lines of text corresponding to how question is displayed
         assertEquals(5, lines.length);
     }
+
+   //FIX: Running into infinite loop when prompting input for Player2 
+   @Test
+    void testPlayRound() {
+        // Create players for testing
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player[] players = {player1, player2};
+
+        // Create a game with the players
+        Game game = new Game(players);
+
+
+        // Define mock user input for players
+        String mockInput = "2\n3\n";
+        ByteArrayInputStream in = new ByteArrayInputStream(mockInput.getBytes());
+
+        // Redirect System.in to use the mock input stream
+        System.setIn(in);
+        
+
+        // Call playRound method
+        game.playRound();
+
+        // Redirect System.out to capture the output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+
+        // Verify that the output contains the expected messages for each step of the round
+        String output = outContent.toString();
+        assertTrue(output.contains("Round 1: "));
+        assertTrue(output.contains("Which data type is used for storing whole number values?"));
+        assertTrue(output.contains("Player1, what is your answer? "));
+        assertTrue(output.contains("Player2, what is your answer? "));
+        assertTrue(output.contains("Player1: _ _ _ _ _"));
+        assertTrue(output.contains("Player2: _ _ _ _ _"));
+    }
 }
