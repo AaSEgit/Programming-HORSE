@@ -5,7 +5,9 @@
 
 
 /**
- * working on stracting th data from SQL
+ * working on stracting th data from SQL error: No suitable driver found for jdbc:mysql://localhost:3306/C:\\xampp\\mysql\\data\\horsedb
+null
+ * 
  * @author gabri
  */
 package horse;
