@@ -5,7 +5,7 @@
 
 
 /**
- * working on stracting th data from SQL
+ *
  * @author gabri
  */
 package horse;
