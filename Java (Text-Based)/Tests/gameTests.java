@@ -258,4 +258,36 @@ class gameTests {
         assertTrue(output.contains("Player1: _ _ _ _ _"));
         assertTrue(output.contains("Player2: _ _ _ _ _"));
     }
+
+   @Test
+    void testPlayGame() {
+        // Create players for testing
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player[] players = {player1, player2};
+
+        // Create a game with the players
+        Game game = new Game(players);
+
+        // Define mock user input for players
+        String mockInput = "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n"; // Simulate valid answers for each round
+        ByteArrayInputStream in = new ByteArrayInputStream(mockInput.getBytes());
+
+        // Redirect System.in to use the mock input stream
+        System.setIn(in);
+
+        // Redirect System.out to capture the output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // Call playGame method
+        game.playGame();
+
+        // Verify the output contains the expected messages for each step of the game
+        String output = outContent.toString();
+        assertTrue(output.contains("Programming HORSE"));
+        assertTrue(output.contains("Round 1: "));
+        assertTrue(output.contains("Round 2: "));
+        assertTrue(output.contains("Player1 spelled HORSE! You win!"));
+    }
 }
