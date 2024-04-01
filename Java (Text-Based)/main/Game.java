@@ -117,7 +117,7 @@ public class Game {
             if (playerAnswerSelections[0] == currentQuestion.getCorrectAnswer() + 1) {
                 players[0].updatePoints();
             }
-            else {
+            else if (playerAnswerSelections[1] == currentQuestion.getCorrectAnswer() + 1)  {
                 players[1].updatePoints();
             }
         }

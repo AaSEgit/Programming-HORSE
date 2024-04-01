@@ -53,7 +53,7 @@ public class Player {
 
     // Increments Player points
     public void updatePoints() {
-        points ++;
+        points++;
     }
 
     // Reset points counter and currentLetters
