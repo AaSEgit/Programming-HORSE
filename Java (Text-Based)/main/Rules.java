@@ -7,7 +7,7 @@
  * Due Date: April 24, 2024
  * 
  */
-
+package horse;
 import java.util.Scanner;
 
 public class Rules {

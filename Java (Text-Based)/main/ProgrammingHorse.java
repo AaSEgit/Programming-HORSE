@@ -1,23 +1,24 @@
 /*
- * CEN4025C - Software Engineering 2
- * Programmer: Ava Adams
- * 
- * Git Repository: Programming-HORSE
- * Assignment: Capstone project prototype
- * Due Date: April 24, 2024
- * 
- * Description:   This file contains the main method for the Programming HORSE game.
- *                  The user will run this file to play the game.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package horse;
 
+/**
+ *
+ * @author gabri
+ */
 public class ProgrammingHorse {
-
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         final int NUM_PLAYERS = 2;
         Player[] players = new Player[NUM_PLAYERS];
         int menuSelection;
-        
-        // Create InitialScreen object
+
+        // Create PlayerManager
+        PlayerManager playerManager = new PlayerManager();
+
+     
+
         InitialScreen initialScreen = new InitialScreen();
 
         // Get player names and initialize Player objects
@@ -47,4 +48,6 @@ public class ProgrammingHorse {
             }
         }
     }
+
 }
+

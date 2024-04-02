@@ -8,7 +8,7 @@
  * 
  * Description:   This file contains the source code for the Player module.
  */
-
+package horse;
 public class Player {
     private String name;
     private int points;
@@ -53,7 +53,7 @@ public class Player {
 
     // Increments Player points
     public void updatePoints() {
-        points++;
+        points ++;
     }
 
     // Reset points counter and currentLetters
