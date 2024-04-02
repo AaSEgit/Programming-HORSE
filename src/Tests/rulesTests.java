@@ -45,7 +45,7 @@ class rulesTests {
                     "\n\nNOTE: Players will not receive a study guide for an unfinished game." +
                     "\nNOTE: Discarding a study guide means it will no longer be available to download." +
 
-                    "\n\nPress ENTER to return to main menu:";
+                    "\n\nPress ENTER to return to main menu: ";
 
             // Get the actual output
             String actualOutput = outputStreamCaptor.toString().trim();

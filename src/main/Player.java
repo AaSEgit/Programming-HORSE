@@ -8,6 +8,7 @@
  * 
  * Description:   This file contains the source code for the Player module.
  */
+package main;
 
 public class Player {
     private String name;

@@ -7,6 +7,7 @@
  * Due Date: April 24, 2024
  * 
  */
+package main;
 
 public class StudyGuide {
     

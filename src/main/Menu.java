@@ -8,6 +8,7 @@
  *  
  * Description:   This file contains the source code for the Menu module.
  */
+package main;
 
 import java.util.Scanner;
 
