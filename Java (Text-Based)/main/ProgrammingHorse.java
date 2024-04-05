@@ -13,6 +13,10 @@
 public class ProgrammingHorse {
 
     public static void main (String[] args) {
+        DataManager db = new DataManager();
+        Question test = DataManager.loadQuestion(1);
+        System.exit(0);
+
         final int NUM_PLAYERS = 2;
         Player[] players = new Player[NUM_PLAYERS];
         int menuSelection;
