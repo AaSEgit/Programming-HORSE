@@ -6,7 +6,8 @@
 
 /**
  *
- * @author gabri
+ * @author Alicia Piedra
+ * Programmer: Gabriel
  */
 // package horse;
 

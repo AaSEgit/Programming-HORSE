@@ -1,6 +1,7 @@
 /*
  * CEN4025C - Software Engineering 2
  * Programmer: Ava Adams
+ * Alicia Piedra
  * 
  * Git Repository: Programming-HORSE
  * Assignment: Capstone project prototype
