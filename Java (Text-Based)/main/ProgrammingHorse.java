@@ -13,8 +13,6 @@
 public class ProgrammingHorse {
 
     public static void main (String[] args) {
-        Question test = DataManager.loadQuestion(1);
-
         final int NUM_PLAYERS = 2;
         Player[] players = new Player[NUM_PLAYERS];
         int menuSelection;

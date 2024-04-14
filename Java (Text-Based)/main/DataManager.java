@@ -32,34 +32,39 @@ public class DataManager {
     private static final String PASS = "";
 
     // Method adjusted for the provided table structure
-    public static Question loadQuestion(int questionID) {
-        Question question = new Question();
+    public static String[] loadQuestion(int questionID) {
+        String query = "SELECT question, answer FROM questions WHERE question_id = ?";
+        String randomAnswersQuery = "SELECT answer FROM questions WHERE question_id != ? ORDER BY RAND() LIMIT 3";
         
-        // Adjusted SQL query to match the provided table structure
-        // Changed where question_ID to just id because the id in the database is associated with that particular question
-        // if we want to still use question_id we need a column called question_id
-        String query = "SELECT question FROM questions WHERE question_id = ?";
- 
-        // Try-with-resources statement to auto-close resources
+        String[] questionAndAnswers = new String[5]; 
+    
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-
+             PreparedStatement pstmt = conn.prepareStatement(query);
+             PreparedStatement pstmtRandom = conn.prepareStatement(randomAnswersQuery)) {
+    
+            // First, get the specific question and its correct answer
             pstmt.setInt(1, questionID);
-            
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    // this is just printing the data from the database
-                    System.out.println(rs.getString(1));
-                    // Assuming 'question' is a field in your Question class that stores the question text
-                    // question.setTextPrompt(rs.getString("question"));
-
-                    // As there's no detail on choices or correct answers, those parts are omitted
+                    questionAndAnswers[0] = rs.getString("question");
+                    questionAndAnswers[1] = rs.getString("answer");
+                  //  System.out.println(questionAndAnswers[0]);
                 }
             }
+    
+            pstmtRandom.setInt(1, questionID);
+            try (ResultSet rs = pstmtRandom.executeQuery()) {
+                int index = 2; //starting at this index since 0,1 hold the correct question and answer
+                while (rs.next() && index < 5) {
+                    ///System.out.println("did this work: ->  " + rs.getString("answer") + "\n");
+                    questionAndAnswers[index++] = rs.getString("answer");
+                }
+            }
+    
         } catch (SQLException e) {
             System.err.println("SQL Exception: " + e.getMessage());
         }
-
-        return question;
+    
+        return questionAndAnswers;
     }
 }

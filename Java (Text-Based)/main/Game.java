@@ -81,7 +81,7 @@ public class Game {
     // Load in a randomized Question
     public void getQuestion() {
         currentQuestion = new Question();
-        currentQuestion.loadQuestionFile(rng.nextInt(2));   // TODO: make more questions to expand rng range
+        currentQuestion.loadQuestionByID(1 + rng.nextInt(50));   // TODO: make more questions to expand rng range
         currentQuestion.displayQuestion();
     }
 
@@ -111,13 +111,18 @@ public class Game {
  
     // Compare player answers and update points
     public void determineRound() {
+        String[] choices = currentQuestion.getAnswerChoices();
+        int player1answer = playerAnswerSelections[0] - 1;
+        int player2answer = playerAnswerSelections[1] - 1;
+        String correctAnswer = currentQuestion.getCorrectAnswer();
+       
         // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
         // Use Player[] players to update the corresponding Player's points
-        if (playerAnswerSelections[0] != playerAnswerSelections[1]) {
-            if (playerAnswerSelections[0] == currentQuestion.getCorrectAnswer() + 1) {
+        if (player1answer != player2answer) {
+            if (choices[player1answer] == correctAnswer) {
                 players[0].updatePoints();
             }
-            else if (playerAnswerSelections[1] == currentQuestion.getCorrectAnswer() + 1)  {
+            else if (choices[player2answer] == correctAnswer)  {
                 players[1].updatePoints();
             }
         }
