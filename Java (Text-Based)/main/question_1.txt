@@ -1,7 +1,0 @@
-Data Types
-Which data type is used for storing decimal values?
-float/double
-integer
-boolean
-character
-0
