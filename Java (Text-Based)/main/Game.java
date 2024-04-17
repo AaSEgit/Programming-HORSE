@@ -66,6 +66,7 @@ public class Game {
             }
             playerAnswerSelections[i] = answer;
         }
+        
 
         // Determine the winner of the round
         determineRound();
@@ -116,7 +117,32 @@ public class Game {
         int player1answer = playerAnswerSelections[0] - 1;
         int player2answer = playerAnswerSelections[1] - 1;
         String correctAnswer = currentQuestion.getCorrectAnswer();
-       
+
+        String currentTopic = currentQuestion.getTopic();
+        if (!players[0].topicScores.containsKey(currentTopic)){
+            players[0].topicScores.put(currentTopic, new int[2]);
+            players[1].topicScores.put(currentTopic, new int[2]);
+        }
+
+        if(choices[player1answer] == correctAnswer)
+        {
+            //increment correct answers
+            players[0].topicScores.get(currentTopic)[0]++;
+        }else{
+            //increment wrong answer
+            players[0].topicScores.get(currentTopic)[1]++;
+        }
+
+        if(choices[player2answer] == correctAnswer)
+        {
+            //increment correct answers
+            players[1].topicScores.get(currentTopic)[0]++;
+        }else{
+            //increment wrong answer
+            players[1].topicScores.get(currentTopic)[1]++;
+        }
+
+
         // Compare answers in int[] playerAnswerSelections to determine the winner of the round (if any)
         // Use Player[] players to update the corresponding Player's points
         if (player1answer != player2answer) {
@@ -138,6 +164,18 @@ public class Game {
         for (int i = 0; i < players.length; i++) {
             if (players[i].getPoints() == 5) {
                 System.out.println("\n" + players[i].getName() + " spelled HORSE! You win!");
+                // show player 1 stats
+                System.out.println("Player 1 Stats: ");   
+                players[0].topicScores.forEach((key, value) 
+                -> System.out.println("Topic: " + key + " Correct: " + value[0] + " Wrong " + value[1]));
+                // show player 2 stats
+                System.out.println("Player 2 Stats: "); 
+                players[1].topicScores.forEach((key, value) 
+                -> System.out.println("Topic: " + key + " Correct: " + value[0] + " Wrong " + value[1]));
+                String[] playerNames = {players[0].getName(), players[1].getName()}; 
+                //After win store all data in db
+                DataManager.saveResponses(playerNames, players[0].topicScores, players[1].topicScores);
+                // System.out.println("test worse topic" + DataManager.getWorstTopic(playerNames[0])); used to be tested to get the worse topic for player 1
                 return i;
             }
         }

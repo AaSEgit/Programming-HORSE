@@ -35,13 +35,14 @@ public class Question {
     public void loadQuestionByID(int ID) {
         try {
             String[] qNa = DataManager.loadQuestion(ID);
-            correctAnswer = qNa[1];
-            topic = "";
-            textPrompt = qNa[0];
+            
+            topic = qNa[0];
+            textPrompt = qNa[1];
+            correctAnswer = qNa[2];
             
             List<Integer> randomIndices = new ArrayList<>();
         
-            for (int i = 1; i <= 4; i++) {
+            for (int i = 2; i <= 5; i++) {
                 randomIndices.add(i);
             }
          Collections.shuffle(randomIndices);

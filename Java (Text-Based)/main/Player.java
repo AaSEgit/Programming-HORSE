@@ -1,7 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
 /*
  * CEN4025C - Software Engineering 2
  * Programmer: Ava Adams
- * 
+ * Alicia Piedra
  * Git Repository: Programming-HORSE
  * Assignment: Capstone project prototype
  * Due Date: April 24, 2024
@@ -14,12 +16,14 @@ public class Player {
     private int points;
     private char[] currentLetters;
     private static char[] HORSE = {'H', 'O', 'R', 'S', 'E'};
+    public Map<String, int[]> topicScores;
 
     /*
      * Constructor
      */
     public Player(String playerName) {
         name = playerName;
+        topicScores = new HashMap<>();
         resetPoints();
     }
 
