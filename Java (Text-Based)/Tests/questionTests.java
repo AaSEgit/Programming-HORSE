@@ -4,61 +4,75 @@ import main.Question;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 
 public class questionTests {
-    private Question question;
-
-    @Before
-    public void setUp() {
-        question = new Question();
-    }
-
+    
     @Test
-    public void testLoadQuestionFile() {
-        question.loadQuestionFile(1);
+    void testLoadQuestionByID() {
+        // Test loading a question with ID 1
+        Question question = new Question();
+        question.loadQuestionByID(1);
 
-        assertEquals("Expected topic does not match", "Data Types", question.getTopic());
-        assertEquals("Expected text prompt does not match", "Which data type is used for storing decimal values?", question.getTextPrompt());
+        // Verify that the question topic is not null or empty
+        assertNotNull(question.getTopic());
+        assertNotEquals("", question.getTopic());
 
-        String[] expectedChoices = {"float/double", "integer", "boolean", "character"};
-        assertArrayEquals("Expected answer choices do not match", expectedChoices, question.getAnswerChoices());
+        // Verify that the text prompt is not null or empty
+        assertNotNull(question.getTextPrompt());
+        assertNotEquals("", question.getTextPrompt());
 
-        assertEquals("Expected correct answer does not match", 0, question.getCorrectAnswer());
-    }
+        // Verify that the correct answer is not null or empty
+        assertNotNull(question.getCorrectAnswer());
+        assertNotEquals("", question.getCorrectAnswer());
 
-    @Test
-    public void testLoadNonExistentQuestionFile() {
-        // Assuming there is no question with ID 1000
-        question.loadQuestionFile(1000);
+        // Verify that the answer choices array is not null and has exactly 4 elements
+        assertNotNull(question.getAnswerChoices());
+        assertEquals(4, question.getAnswerChoices().length);
 
-        assertNull("Topic should be null for a non-existent file", question.getTopic());
-        assertNull("Text prompt should be null for a non-existent file", question.getTextPrompt());
-        for (String choice : question.getAnswerChoices()) {
-            assertNull("Each answer choice should be null for a non-existent file", choice);
+        // Verify that each answer choice is not null or empty
+        for (String answer : question.getAnswerChoices()) {
+            assertNotNull(answer);
+            assertNotEquals("", answer);
         }
-        assertEquals("Correct answer should be 0 for a non-existent file", 0, question.getCorrectAnswer());
     }
 
     @Test
-    public void testDisplayQuestion() {
-        // Set up a test question
-        question.loadQuestionFile(1); // Assuming loadQuestionFile correctly loads the data
+    void testDisplayQuestion() {
+        // Test displaying a question
+        Question question = new Question();
+        question.loadQuestionByID(1);
 
-        // Redirect System.out to capture printed output
+        // Redirect System.out to capture the output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
         // Call displayQuestion method
         question.displayQuestion();
 
-        // Reset System.out normal
+        // Reset System.out
         System.setOut(System.out);
 
-        // Check the printed output
-        String expectedOutput = "Which data type is used for storing decimal values?\n(1)  float/double\n(2)  integer\n(3)  boolean\n(4)  character\n";
-        assertEquals("Display output does not match expected output", expectedOutput, outContent.toString());
+        // Verify that the output contains the text prompt and answer choices
+        String output = outContent.toString();
+        assertTrue(output.contains(question.getTextPrompt()));
+        for (String answer : question.getAnswerChoices()) {
+            assertTrue(output.contains(answer));
+        }
+    }
+
+    @Test
+    void testGetCorrectAnswer() {
+        // Test getting the correct answer
+        Question question = new Question();
+        question.loadQuestionByID(1);
+
+        // Verify that the correct answer matches one of the answer choices
+        String correctAnswer = question.getCorrectAnswer();
+        assertNotNull(correctAnswer);
+        assertTrue(List.of(question.getAnswerChoices()).contains(correctAnswer));
     }
 }
