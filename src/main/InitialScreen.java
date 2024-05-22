@@ -1,13 +1,15 @@
 /*
  * CEN4025C - Software Engineering 2
- * Programmer: Ava Adams
- * 
+ * Programmers: Ava Adams, Juan Leon Perez, Alicia Piedra, Gabriel Perez Alpizar
  * Git Repository: Programming-HORSE
  * Assignment: Capstone project prototype
  * Due Date: April 24, 2024
  * 
- * Description:   This file contains the source code for the InitialScreen module.
+ * Description:   This file contains the main method for the Programming HORSE game.
+ *                  The user will run this file to play the game.
  */
+
+package main;
 
 import java.util.Scanner;
 

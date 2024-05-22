@@ -4,12 +4,18 @@
  */
 
 
-/**
- *
- * @author Alicia Piedra
- * Programmer: Gabriel
+/*
+ * CEN4025C - Software Engineering 2
+ * Programmers: Ava Adams, Juan Leon Perez, Alicia Piedra, Gabriel Perez Alpizar
+ * Git Repository: Programming-HORSE
+ * Assignment: Capstone project prototype
+ * Due Date: April 24, 2024
+ * 
+ * Description:   This file contains the main method for the Programming HORSE game.
+ *                  The user will run this file to play the game.
  */
-// package horse;
+
+package main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
