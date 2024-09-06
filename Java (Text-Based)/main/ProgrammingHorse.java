@@ -1,6 +1,7 @@
 /*
  * CEN4025C - Software Engineering 2
- * Programmers: Ava Adams, Juan Leon Perez, Alicia Piedra, Gabriel Perez Alpizar
+ * Programmer: Ava Adams
+ * Alicia Piedra
  * Git Repository: Programming-HORSE
  * Assignment: Capstone project prototype
  * Due Date: April 24, 2024
@@ -8,8 +9,6 @@
  * Description:   This file contains the main method for the Programming HORSE game.
  *                  The user will run this file to play the game.
  */
-
-package main;
 
 public class ProgrammingHorse {
 
