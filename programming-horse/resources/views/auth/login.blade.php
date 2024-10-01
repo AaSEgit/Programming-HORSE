@@ -4,7 +4,7 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        <div class="font-family: Urbanist">
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -43,5 +43,6 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+</div>
     </form>
 </x-guest-layout>
