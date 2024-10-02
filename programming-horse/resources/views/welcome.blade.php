@@ -42,11 +42,12 @@
             }
 
             .button {
+                margin-left: 50px;
                 text-decoration: none;
                 padding: 10px 20px;
                 border-radius: 10px; /* Rounded corners */
                 font-size: 16px;/* Using the Urbanist font */
-                width: 95%;
+                width: 70%;
                 text-align: center;
                 display: inline-block;
                 cursor: pointer;
@@ -55,6 +56,7 @@
 
             /* Black button with white text (Login button) */
             .login-button {
+                margin-top: 20px;
                 background-color: black;
                 color: white;
                 border: none;
@@ -78,8 +80,8 @@
     </head>
     <body class="blank">
         <div class="container">
-            <h1>Programming HORSE</h1>
-            <img src="{{ asset('images/horse_logo.png') }}" alt="Logo">
+            <h1 style="font-weight: 900; font-size: 40px">Programming HORSE</h1>
+            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             <a href="{{ route('login') }}" class="button login-button">Login</a>
             <a href="{{ route('register') }}" class="button register-button">Register</a>
         </div>

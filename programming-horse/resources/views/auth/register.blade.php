@@ -1,4 +1,8 @@
 <x-guest-layout>
+<h1 style="font-family: Urbanist; font-size:30px; font-weight: 900">Welcome!</h1>
+
+<div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +53,5 @@
             </x-primary-button>
         </div>
     </form>
+</div>
 </x-guest-layout>

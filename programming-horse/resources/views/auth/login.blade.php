@@ -1,10 +1,15 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    
+    <h1 style="font-family: Urbanist; font-size:30px; font-weight: 900">Welcome back! Glad to see you again!</h1>
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="font-family: Urbanist">
+        
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -45,4 +50,5 @@
         </div>
 </div>
     </form>
+</div>
 </x-guest-layout>
