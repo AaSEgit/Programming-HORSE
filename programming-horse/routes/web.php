@@ -11,6 +11,10 @@ Route::get('/index', function () {
     return view('welcome');
 });
 
+Route::get('/rules', function () {
+    return view('rules');
+})->name('rules');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

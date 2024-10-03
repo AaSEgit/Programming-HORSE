@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-primary-button>Play a Game</x-primary-button>
-                    <x-primary-button>View Rules</x-primary-button>
+                    <x-primary-button onclick="window.location.href='{{ route('rules') }}'">View Rules</x-primary-button>
                     <x-primary-button>View List of Topics</x-primary-button>
                 </div>
             </div>
