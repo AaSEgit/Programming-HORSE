@@ -125,26 +125,38 @@
     <header class="bg-white dark:bg-gray-800 shadow">            
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-align: center">
-                {{ __('Rules') }}
+                {{ __('Topics') }}
             </h2>
         </div>
     </header>
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist';padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
-        <h1 style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">Overview</h1>
-        <p style="font-size: 20px">
-        Welcome to Programming HORSE! This game teaches early coding concepts. To start a game of Programming HORSE, just click the "Play a Game" button in the main menu. Each round, you will take turns with the computer answering a question based on an introductory programming topic. Press the appropriate button based on your answer selection.
-        If both players answer correctly, the round results in a tie and no letters are rewarded. Otherwise, the sole player who answers correctly will earn a letter towards spelling H-O-R-S-E. The player who earns all 5 letters first wins the game!
-    </p>
+    <div style="background-color: #333; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding-bottom: 25px; width: 600px; margin: 0 auto; margin-top: 100px;">    
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">All Topics</p>
     </div>
-
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
-        <h1 style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">Saving your Study Guide</h1>
-        <p style="font-size: 20px">
-        At the end of a game of Programming HORSE, the program will create a custom study guide based on your in-game performance. The study guide will highlight your strongest and weakest topics, and recommend topics to study before the next game.
-
-        NOTE: Players will not receive a study guide for an unfinished game. 
-        NOTE: Discarding a study guide means it will no longer be available to download.
-        </p>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">Data Types</p>
+    </div>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">Arrays</p>
+    </div>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">Functions</p>
+    </div>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">Objects</p>
+    </div>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+        <p style="font-size: 20px; padding-top: 13px;">Strings</p>
+        </div>
+        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+            <p style="font-size: 20px; padding-top: 13px;">Syntax</p>
+        </div>
+        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+            <p style="font-size: 20px; padding-top: 13px;">Loops</p>
+        </div>
+        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+            <p style="font-size: 20px; padding-top: 13px;">Operators</p>
+        </div>
     </div>
 
 </div>

@@ -7,6 +7,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/topics', function () {
+    return view('topics');
+})->name('topics');
+
+Route::get('/playgame', function () {
+    return view('playgame');
+})->name('playgame');
+
 Route::get('/index', function () {
     return view('welcome');
 });
