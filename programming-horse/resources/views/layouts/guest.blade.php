@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body style="font-family: 'Urbanist'">
-        <a href="{{ route('welcome') }}"><img src="{{ asset('images/back_button.png') }}" alt="Logo" style="height:100px">
+        <a href="{{ route('welcome') }}"><img src="{{ asset('images/back_button.png') }}" alt="Logo" style="height:100px; margin-top: 50px; margin-left: 50px;">
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
     
             <div>
