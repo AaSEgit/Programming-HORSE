@@ -1,19 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Programming HORSE') }}</title>
+    <title>{{ config('app.name', 'Programming HORSE') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <style>
+        .content-section {
+            margin-top: 50px;
+            font-family: 'Urbanist';
+            padding-bottom: 20px;
+            border-radius: 25px;
+            padding-top: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-header {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .content-text {
+            font-size: 20px;
+        }
+
+        .logo {
+            height: 60px;
+            width: 75px;
+            border-radius: 10px;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .max-w-7xl {
+            max-width: 80rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .content-section {
+            margin-top: 50px;
+            font-family: 'Urbanist';
+            padding-bottom: 20px;
+            border-radius: 25px;
+            padding-top: 10px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .section-text {
+            font-size: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -21,13 +89,11 @@
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
-                            <!-- Add your logo here -->
-                            <img src="{{ asset('images/horse_logo.png') }}" style="height: 60px; width: 75px; border-radius: 10px" alt="Logo">
-                        
+                        <!-- Add your logo here -->
+                        <img src="{{ asset('images/horse_logo.png') }}" class="logo" alt="Logo">
                     </div>
 
                     <!-- Navigation Links -->
@@ -37,9 +103,6 @@
                         </x-nav-link>
                     </div>
                 </div>
-                
-                
-
 
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -74,7 +137,6 @@
                         </x-slot>
                     </x-dropdown>
                 </div>
-
 
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden">
@@ -124,29 +186,30 @@
     </nav>
     <header class="bg-white dark:bg-gray-800 shadow">            
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-align: center">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-center">
                 {{ __('Rules') }}
             </h2>
         </div>
     </header>
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist';padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
-        <h1 style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">Overview</h1>
-        <p style="font-size: 20px">
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-section">
+        <h1 class="section-title">Overview</h1>
+        <p class="section-text">
         Welcome to Programming HORSE! This game teaches early coding concepts. To start a game of Programming HORSE, just click the "Play a Game" button in the main menu. Each round, you will take turns with the computer answering a question based on an introductory programming topic. Press the appropriate button based on your answer selection.
         If both players answer correctly, the round results in a tie and no letters are rewarded. Otherwise, the sole player who answers correctly will earn a letter towards spelling H-O-R-S-E. The player who earns all 5 letters first wins the game!
     </p>
     </div>
 
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
-        <h1 style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">Saving your Study Guide</h1>
-        <p style="font-size: 20px">
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-section">
+        <h1 class="section-title">Saving your Study Guide</h1>
+        <p class="section-text">
         At the end of a game of Programming HORSE, the program will create a custom study guide based on your in-game performance. The study guide will highlight your strongest and weakest topics, and recommend topics to study before the next game.
-
-        NOTE: Players will not receive a study guide for an unfinished game. 
-        NOTE: Discarding a study guide means it will no longer be available to download.
+        <br>
+        <br>
+        <b>NOTE:</b> Players will not receive a study guide for an unfinished game. 
+        <br>
+        <b>NOTE:</b> Discarding a study guide means it will no longer be available to download.
         </p>
     </div>
-
 </div>
 </body>
 </html>

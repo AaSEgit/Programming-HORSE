@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight text-align: center">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight" style=" text-align: center">
             {{ __('Main Menu') }}
         </h2>
     </x-slot>
