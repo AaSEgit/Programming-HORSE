@@ -14,6 +14,15 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->bigIntenger("game_id");
+            $table->string("user_name");
+            $table->string("language");
+            $table->string("topic_id");
+            $table->string("game_state");
+            $table->string("game_status");
+            $table->string("game_winner");
+
+            $table->foreign("user_name")->reference("user_name")->on("users");
         });
     }
 
