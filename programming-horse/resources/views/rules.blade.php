@@ -46,7 +46,7 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ Auth::user()->name }}</div>
+                                <div>{{ Auth::user()->name ?? "No category" }}</div>
 
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -99,8 +99,8 @@
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                 <div class="px-4">
-                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? "No category"  }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? "No category"  }}</div>
                 </div>
 
                 <div class="mt-3 space-y-1">
@@ -135,6 +135,42 @@
         Welcome to Programming HORSE! This game teaches early coding concepts. To start a game of Programming HORSE, just click the "Play a Game" button in the main menu. Each round, you will take turns with the computer answering a question based on an introductory programming topic. Press the appropriate button based on your answer selection.
         If both players answer correctly, the round results in a tie and no letters are rewarded. Otherwise, the sole player who answers correctly will earn a letter towards spelling H-O-R-S-E. The player who earns all 5 letters first wins the game!
     </p>
+    </div>
+
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
+        <h1 style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">Topics</h1>
+        <p style="font-size: 20px">
+            Review the current list of topics available for gameplay:
+        </p>
+        <div style="background-color: #333; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding-bottom: 25px; width: 600px; margin: 0 auto; margin-top: 100px;">    
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">All Topics</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Data Types</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Arrays</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Functions</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Objects</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+            <p style="font-size: 20px; padding-top: 13px;">Strings</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Syntax</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Loops</p>
+            </div>
+            <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; width: 165px; text-align: center;">
+                <p style="font-size: 20px; padding-top: 13px;">Operators</p>
+            </div>
+        </div>
     </div>
 
     <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist'; padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
