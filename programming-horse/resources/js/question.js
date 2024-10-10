@@ -12,14 +12,13 @@ export class Question {
     constructor() {
         this.topic = "";
         this.textPrompt = "";
-        this.answerChoices = ["Float", "Char", "Int", "Bool"];  // Initialize an array of 4 elements for answer choices
+        this.answerChoices = [];  // Initialize an array of 4 elements for answer choices
         this.correctAnswer = "";
     }
 
     // Method to load a question by its ID (Simulating the PHP backend interaction)
     async loadQuestionByID(ID) {
         try {
-            /*
             // Simulate an AJAX call to PHP backend to fetch the question data by ID
             const response = await fetch(`loadQuestion.php?id=${ID}`);
             const qNa = await response.json();  // Assume the response is JSON
@@ -27,10 +26,6 @@ export class Question {
             this.topic = qNa[0];
             this.textPrompt = qNa[1];
             this.correctAnswer = qNa[2];
-            */
-            this.topic = "Data Types";
-            this.textPrompt = "What data type represents decimal values?";
-            this.correctAnswer = "Float";
 
             // Shuffle the answer choices
             let randomIndices = [2, 3, 4, 5]; // Based on the assumption from Java code
