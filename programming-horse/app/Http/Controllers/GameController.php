@@ -35,8 +35,15 @@ class GameController extends Controller
         $request->validate([
             'game_state' => 'sometimes|required|in:in_progress,completed',
             'game_status' => 'sometimes|required|string|max:255',
-            'game_winner' => 'nullable|string|in:user,computer',
+            'game_winner' => 'nullable|string|in:user,computer', // Specify who won the game
         ]);
+
+        // Update only if the game state is 'completed' to set the winner
+        if ($request->has('game_state') && $request->game_state === 'completed') {
+            $request->validate([
+                'game_winner' => 'required|string|in:user,computer', // Winner must be specified
+            ]);
+        }
 
         $game->update($request->only('game_state', 'game_status', 'game_winner'));
         return $game;
