@@ -15,8 +15,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body style="font-family: 'Urbanist'";>
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body style="font-family: 'Urbanist';" x-data="{ darkMode: false }" x-init="
+    if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('darkMode', JSON.stringify(true));
+    }
+    darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
+        <div x-bind:class="{'dark' : darkMode === true}"  class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
     
             <!-- Page Heading -->
@@ -35,4 +40,13 @@
             </main>
         </div>
     </body>
+    <script>
+    // Check Storage
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+</script>
 </html>

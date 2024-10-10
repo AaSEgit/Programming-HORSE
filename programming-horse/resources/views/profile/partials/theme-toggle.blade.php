@@ -1,4 +1,4 @@
-<section>
+<section x-data="themeToggle" x-init="$watch('darkMode', value => console.log('Dark mode:', value))">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Display Settings') }}
@@ -18,7 +18,7 @@
 
             <!-- Toggle switch structure -->
             <label class="switch ml-3">
-                <input type="checkbox" id="light-toggle" name="dark_mode" @if(old('dark_mode', $user->dark_mode)) checked @endif>
+                <input type="checkbox" id="light-toggle" name="dark_mode" x-model="darkMode" @click="toggleTheme">
                 <span class="slider round"></span>
             </label>
         </div>
@@ -92,3 +92,29 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 </style>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+      Alpine.data('themeToggle', () => ({
+          darkMode: {{ $user->dark_mode ? 'true' : 'false' }},
+          toggleTheme() {
+              this.darkMode = !this.darkMode;
+              if (this.darkMode) {
+                  document.documentElement.classList.add('dark');
+              } else {
+                  document.documentElement.classList.remove('dark');
+              }
+              // Save preference to local storage
+              localStorage.setItem('darkMode', this.darkMode);
+              // You might want to make an AJAX call here to update the user's preference in the database
+          },
+          init() {
+              // Check local storage for saved preference
+              if (localStorage.getItem('darkMode') === 'true') {
+                  this.darkMode = true;
+                  document.documentElement.classList.add('dark');
+              }
+          }
+      }));
+  });
+</script>

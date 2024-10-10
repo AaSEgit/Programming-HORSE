@@ -28,6 +28,10 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+        $request->user()->forceFill([
+            'dark_mode' => $request->boolean('dark_mode'),
+        ])->save();
+
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
