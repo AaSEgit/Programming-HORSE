@@ -9,7 +9,7 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 //This is how we will automate inserting all the questions to the database
-Artisan::command('hydrate {csvFilePath}', function(string $csvFilePath){
+Artisan::command('hydrate-questions {csvFilePath}', function(string $csvFilePath){
 
     //Note the csvfile path entered while using the command must be
     // a valid file otherwise it will log the error and will not be imported
