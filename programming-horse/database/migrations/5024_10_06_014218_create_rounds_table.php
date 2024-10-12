@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('rounds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigIncrements("round_num")->primary();
-            $table->bigIntenger("game_id")->unqiue();
-            $table->bigInteger("question_id");
+            $table->unsignedBigInteger("round_num");
+            $table->unsignedBigInteger("game_id")->unqiue();
+            $table->unsignedBigInteger("question_id");
             $table->string("answer_selected");
             $table->string("round_winner");
 
-            $table->foreign("game_id")->reference("game_id")->on("games");
+            $table->foreign("game_id")->references("game_id")->on("games");
             $table->foreign("question_id")->references("question_id")->on("questions");
     });
     }
