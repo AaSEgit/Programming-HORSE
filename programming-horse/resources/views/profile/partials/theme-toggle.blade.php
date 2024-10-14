@@ -1,4 +1,24 @@
-<section x-data="themeToggle" x-init="$watch('darkMode', value => console.log('Dark mode:', value))">
+<section x-data="{
+    darkMode: localStorage.getItem('darkMode') === 'true',
+    toggleTheme() {
+        this.darkMode = !this.darkMode;
+        localStorage.setItem('darkMode', this.darkMode);
+        if (this.darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    },
+    init() {
+        if (this.darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }
+}" 
+x-init="init(); $watch('darkMode', value => console.log('Dark mode:', value))">
+    
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Display Settings') }}
@@ -22,6 +42,8 @@
                 <span class="slider round"></span>
             </label>
         </div>
+
+        <div x-text="'Current mode: ' + (darkMode ? 'Dark' : 'Light')"></div>
 
         @if (session('status') === 'settings-updated')
             <p
@@ -76,7 +98,7 @@
 
 /* Style for when the checkbox is checked */
 input:checked + .slider {
-  background-color: #ff0000; /* Change this to red if you want red when checked */
+  background-color: #ff0000;
 }
 
 input:checked + .slider:before {
@@ -91,30 +113,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-</style>
 
-<script>
-  document.addEventListener('alpine:init', () => {
-      Alpine.data('themeToggle', () => ({
-          darkMode: {{ $user->dark_mode ? 'true' : 'false' }},
-          toggleTheme() {
-              this.darkMode = !this.darkMode;
-              if (this.darkMode) {
-                  document.documentElement.classList.add('dark');
-              } else {
-                  document.documentElement.classList.remove('dark');
-              }
-              // Save preference to local storage
-              localStorage.setItem('darkMode', this.darkMode);
-              // You might want to make an AJAX call here to update the user's preference in the database
-          },
-          init() {
-              // Check local storage for saved preference
-              if (localStorage.getItem('darkMode') === 'true') {
-                  this.darkMode = true;
-                  document.documentElement.classList.add('dark');
-              }
-          }
-      }));
-  });
-</script>
+@media (prefers-color-scheme: dark) {
+  .dark\:text-gray-100 {
+      color: #f3f4f6;
+  }
+  .dark\:text-gray-400 {
+      color: #9ca3af;
+  }
+}
+</style>

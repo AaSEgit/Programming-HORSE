@@ -16,61 +16,87 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        body {
-            font-family: 'Urbanist';
-        }
-        .logo-image {
-            height: 60px;
-            width: 75px;
-            border-radius: 10px;
-        }
-        .topic-title {
-            font-size: 40px;
-            text-align: center;
-            margin-top: 25px;
-        }
-        .topic-grid {
-            border-radius: 8px;
-            background-color: black;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            padding: 20px;
-            width: 600px;
-            margin: 0 auto;
-            margin-top: 60px;
-            padding-top: 0;
-        }
-        .topic-item {
-            border-radius: 10px;
-            margin-top: 35px;
-            font-family: 'Urbanist';
-            padding-bottom: 20px;
-            width: 165px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        }
-        .topic-item:hover {
-            transform: scale(1.1); /* Enlarge the item when hovered */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hovering effect */
-        }
-        .topic-text {
-            font-size: 20px;
-            padding-top: 13px;
-        }
-        .start-button-container {
-            margin-left: 830px;
-            margin-top: 80px;
-        }
-        .start-button {
-            height: 80px;
-            width: 270px;
-            text-align: center;
-            margin: 0 auto;
-            padding-left: 70px;
-            background-color: black;
-        }
+    :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+        --grid-background: #f0f0f0;
+        --item-background: #ffffff;
+        --item-text-color: #000000;
+        --button-background: #000000;
+        --button-text-color: #ffffff;
+    }
+
+    body {
+        font-family: 'Urbanist';
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .logo-image {
+        height: 60px;
+        width: 75px;
+        border-radius: 10px;
+    }
+
+    .topic-title {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .topic-grid {
+        border-radius: 8px;
+        background-color: var(--grid-background);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 20px;
+        width: 600px;
+        margin: 0 auto;
+        margin-top: 60px;
+        padding-top: 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .topic-item {
+        border-radius: 10px;
+        margin-top: 35px;
+        font-family: 'Urbanist';
+        padding-bottom: 20px;
+        width: 165px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        background-color: var(--item-background);
+        color: var(--item-text-color);
+    }
+
+    .topic-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .topic-text {
+        font-size: 20px;
+        padding-top: 13px;
+    }
+
+    .start-button-container {
+        margin-left: 830px;
+        margin-top: 80px;
+    }
+
+    .start-button {
+        height: 80px;
+        width: 270px;
+        text-align: center;
+        margin: 0 auto;
+        padding-left: 70px;
+        background-color: var(--button-background);
+        color: var(--button-text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
     </style>
 </head>
 <body>

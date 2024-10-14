@@ -1,5 +1,28 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
+x-data="{ darkMode: false }" 
+    x-init="(function() {
+        // Set dark mode based on user's system preference or localStorage
+        if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            localStorage.setItem('darkMode', JSON.stringify(true));
+        }
+        darkMode = JSON.parse(localStorage.getItem('darkMode'));
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Watch for changes in darkMode and update localStorage and class accordingly
+        $watch('darkMode', value => {
+            localStorage.setItem('darkMode', JSON.stringify(value));
+            if (value) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    })()">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,17 +34,14 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+
     </head>
-    <body style="font-family: 'Urbanist';" x-data="{ darkMode: false }" x-init="
-    if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      localStorage.setItem('darkMode', JSON.stringify(true));
-    }
-    darkMode = JSON.parse(localStorage.getItem('darkMode'));
-    $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-        <div x-bind:class="{'dark' : darkMode === true}"  class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body style="font-family: 'Urbanist';" class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
     
             <!-- Page Heading -->
@@ -40,13 +60,5 @@
             </main>
         </div>
     </body>
-    <script>
-    // Check Storage
-    if (localStorage.getItem('darkMode') === 'true' || 
-        (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-</script>
+
 </html>
