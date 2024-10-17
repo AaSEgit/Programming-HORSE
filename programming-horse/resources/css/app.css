@@ -30,4 +30,14 @@ body {
   border: 1px solid #444; /* Optional border style */
 }
 
+h1 {
+    font-size: 30px; 
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+p {
+    font-size: 20px;
+}
+
 

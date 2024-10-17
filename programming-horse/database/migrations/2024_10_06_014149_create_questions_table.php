@@ -12,20 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->id();
+            $table->id("question_id");
             $table->timestamps();
-            $table->bigIntenger("question_id");
             $table->string("language");
-            $table->string("topic_id");
-            $table->string("question_prompt");
+            $table->foreignId("topic_id");
+            $table->string("question");
             $table->string("correct_answer");
-            $table->string("incorrect_answer_1");
-            $table->string("incorrect_answer_2");
-            $table->string("incorrect_answer_3");
-            $table->string("incorrect_answer_5");
-            $table->bool("validated");
+            $table->string("incorrect_1");
+            $table->string("incorrect_2");
+            $table->string("incorrect_3");
+            $table->boolean("validated")->nullable();
 
-            $table->foreign("topic_id")->reference("topic_id")->on("topics");
+           // $table->foreign("topic_id")->reference("topic_id")->on("topics");
         });
     }
 

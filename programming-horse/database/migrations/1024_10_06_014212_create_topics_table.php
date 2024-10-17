@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('topics', function (Blueprint $table) {
-            $table->id();
+            $table->id("topic_id");
             $table->timestamps();
-            $table->text("topic_id");
-            $table->text("topic_prompt");
+            $table->string("topic_prompt")->unique();
         });
     }
 

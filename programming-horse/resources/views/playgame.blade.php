@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Programming HORSE') }}</title>
+        <title>{{ config('app.name', 'Programming HORSE') }}</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -105,6 +105,7 @@
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
+
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
@@ -119,13 +120,16 @@
                         </x-nav-link>
                     </div>
                 </div>
+                
+                
+
 
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ Auth::user()->name }}</div>
+                                <div>{{ Auth::user()->name ?? "No category" }}</div>
 
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -154,6 +158,7 @@
                     </x-dropdown>
                 </div>
 
+
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden">
                     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
@@ -177,8 +182,8 @@
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                 <div class="px-4">
-                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name ?? "No category" }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? "No category" }}</div>
                 </div>
 
                 <div class="mt-3 space-y-1">
@@ -200,6 +205,7 @@
             </div>
         </div>
     </nav>
+
     <header class="bg-white dark:bg-gray-800 shadow">            
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight" style="text-align: center">
@@ -207,39 +213,55 @@
             </h2>
         </div>
     </header>
-    <h2 class="topic-title">Choose your Topic(s):</h2>    
-    <div class="topic-grid">
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">All Topics</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Data Types</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Arrays</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Functions</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Objects</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Strings</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Syntax</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Loops</p>
-        </div>
-        <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topic-item" onclick="toggleColor(this)">
-            <p class="topic-text">Operators</p>
-        </div> 
+
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="margin-top: 50px; font-family:'Urbanist';padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
+        <!-- Round Counter -->
+        <h1 id="round" style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">ROUND</h1>
+        
+        <!-- Current Question -->
+        <p style="font-size: 20px" id="question">[insert question text here]</p>
+
+        <!-- User Answer Selection -->
+        <form action="/playgame">
+            <input type="radio" id="c++" name="selection" value="C++">
+            <label for="c++">C++</label><br>
+
+            <input type="radio" id="java" name="selection" value="Java">
+            <label for="java">Java</label><br>
+
+            <input type="radio" id="python" name="selection" value="Python">
+            <label for="python">Python</label><br>
+
+            <input type="radio" id="javascript" name="selection" value="JavaScript">
+            <label for="javascript">JavaScript</label><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <!--Game Script-->
+        <script>
+            class Game {
+                // Game class constructor
+                constructor() {
+                    // Attributes
+                    this.currentRound = 0;
+                }
+
+                getRound() {
+                    return this.currentRound;
+                }
+            }
+
+            // Initialize new game
+            game = new Game();
+
+            // Update HTML elements
+            document.getElementById("round").innerHTML = "ROUND " + game.getRound();
+        </script>
+
     </div>
-    <div class="mx-auto start-button-container">
-        <x-primary-button class="start-button" onclick="window.location.href='{{ route('topics') }}'">Start Game</x-primary-button>
-    </div>
+</div>
+
 </div>
 </body>
 <script>
