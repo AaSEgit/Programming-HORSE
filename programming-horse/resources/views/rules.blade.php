@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="bg-gray-800 dark:bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-section text-white dark:text-gray-600" style="margin-bottom: 5%; width: 1000px; border-radius: 25px;">
+    <div class="bg-gray-800 dark:bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-section text-white dark:text-gray-600" style="width: 1000px; border-radius: 25px;">
         <h1 class="section-title" style="padding-top: 25px;">Saving your Study Guide</h1>
         <p class="section-text" style="padding-bottom: 25px;">
         At the end of a game of Programming HORSE, the program will create a custom study guide based on your in-game performance. The study guide will highlight your strongest and weakest topics, and recommend topics to study before the next game.
