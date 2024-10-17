@@ -17,12 +17,19 @@
                     </x-nav-link>
                 </div>
             </div>
+            <div>
+                    <!-- Dark mode toggle button -->
+                    <button @click="darkMode = !darkMode" class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white p-2 rounded">
+                        <span x-show="!darkMode">🌞 Light Mode</span>
+                        <span x-show="darkMode">🌙 Dark Mode</span>
+                    </button>
+                </div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
 
-            <!-- Add this button right here -->
-                
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">

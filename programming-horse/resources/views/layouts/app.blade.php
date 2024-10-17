@@ -1,28 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
-x-data="{ darkMode: false }" 
-    x-init="(function() {
-        // Set dark mode based on user's system preference or localStorage
-        if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            localStorage.setItem('darkMode', JSON.stringify(true));
-        }
-        darkMode = JSON.parse(localStorage.getItem('darkMode'));
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-
-        // Watch for changes in darkMode and update localStorage and class accordingly
-        $watch('darkMode', value => {
-            localStorage.setItem('darkMode', JSON.stringify(value));
-            if (value) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-    })()">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ darkMode: localStorage.getItem('dark-mode') === 'true' }" x-init="$watch('darkMode', value => localStorage.setItem('dark-mode', value))" :class="{ 'dark': darkMode }">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,14 +13,32 @@ x-data="{ darkMode: false }"
         <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css',  'resources/js/app.js', 'resources/css/dark-mode.css'])
+
+    <style>
+           
+
+            h1 {
+                font-size: 30px; 
+                margin-bottom: 10px;
+                font-weight: 900;
+            }
+
+            p {
+                font-size: 20px;
+            }
 
 
+    
+
+    </style>
 
     </head>
-    <body style="font-family: 'Urbanist';" class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body style="font-family: 'Urbanist';" class="min-h-screen bg-gray-100 font-sans antialiased bg-gray-100 dark:bg-gray-700 text-black dark:text-white">
         @include('layouts.navigation')
-    
+
+
+
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-white dark:bg-gray-800 shadow">
@@ -58,7 +53,9 @@ x-data="{ darkMode: false }"
             <main>
                 {{ $slot }}
             </main>
+          
         </div>
+
     </body>
 
 </html>

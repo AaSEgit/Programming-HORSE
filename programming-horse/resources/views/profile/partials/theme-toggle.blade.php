@@ -1,23 +1,4 @@
-<section x-data="{
-    darkMode: localStorage.getItem('darkMode') === 'true',
-    toggleTheme() {
-        this.darkMode = !this.darkMode;
-        localStorage.setItem('darkMode', this.darkMode);
-        if (this.darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    },
-    init() {
-        if (this.darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }
-}" 
-x-init="init(); $watch('darkMode', value => console.log('Dark mode:', value))">
+<section>
     
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -38,7 +19,7 @@ x-init="init(); $watch('darkMode', value => console.log('Dark mode:', value))">
 
             <!-- Toggle switch structure -->
             <label class="switch ml-3">
-                <input type="checkbox" id="light-toggle" name="dark_mode" x-model="darkMode" @click="toggleTheme">
+                <input type="checkbox" id="dark_mode" name="dark_mode" x-model="darkMode" onclick="toggleDarkMode()">
                 <span class="slider round"></span>
             </label>
         </div>
@@ -64,6 +45,15 @@ x-init="init(); $watch('darkMode', value => console.log('Dark mode:', value))">
   display: inline-block;
   width: 60px;
   height: 25px;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
 }
 
 /* Hide default HTML checkbox */
@@ -123,3 +113,11 @@ input:checked + .slider:before {
   }
 }
 </style>
+<script>
+     function toggleDarkMode() {
+            const body = document.getElementById('page-body');
+            body.classList.toggle('dark-mode');
+            const div = document.getElementsByTagName("div");
+            div.classList.toggle('dark-mode');
+      }
+</script>
