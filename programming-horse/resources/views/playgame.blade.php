@@ -8,7 +8,7 @@
         </div>
     </header>
 
-    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 dark:text-gray-800" style="margin-top: 50px; font-family:'Urbanist';padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
+    <div class="dark:bg-gray-800 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800 dark:text-white" style="margin-top: 50px; font-family:'Urbanist';padding-bottom: 20px; border-radius: 25px; padding-top: 10px;">
         <!-- Round Counter -->
         <h1 id="round" style="font-size: 30px; margin-bottom: 10px; font-weight: 900;">ROUND</h1>
         
