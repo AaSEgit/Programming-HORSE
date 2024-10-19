@@ -23,15 +23,16 @@ Artisan::command('hydrate-questions {csvFilePath}', function(string $csvFilePath
         //to insert into the database
         if(count($questions) > 0)
         {
-           $questionService->insertQuestions($questions);
+            $questionService->insertQuestions($questions);
         }else
         {
-            //@TODO add error messaging log
-            echo "Someting went wrong";
+            Log::warning("No valid questions found in $csvFilePath.");
+            echo "No valid questions found. Please check the CSV file.";
         }
     }catch (\Exception $e)
     {
-
+        Log::error("Error importing questions from $csvFilePath: " . $e->getMessage());
+        $this->error("Failed to import questions from $csvFilePath. Check the logs for more details.");
     }
     $this->info("Successfully Imported $csvFilePath" . "!");
 });
